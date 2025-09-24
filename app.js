@@ -1,3 +1,35 @@
+/**
+ * Exercise 0: printHeader()
+ * 
+ * Function for building a header with centered text.
+ * 
+ * Just for fun!
+ */
+const printHeader = (headerText) => {
+    // top and bottom bars
+    const headerWidth = 75
+    const headerBar = '='.repeat(headerWidth)
+
+    // centered header text
+    const headerTextLen = headerText.length
+    const diff = headerWidth - headerTextLen
+    const diffDivideBy2 = Math.floor(diff / 2)
+    const hasRemainder = diff / 2 % 1 !== 0
+
+    // blank spaces surrounding header text
+    const begining = ' '.repeat(diffDivideBy2)
+    const middle = headerText
+    let ending = ' '.repeat(diffDivideBy2)
+    if (hasRemainder) ending = ' '.repeat(diffDivideBy2 + 1)
+
+    // put it all together
+    const header = `|${headerBar}|\n|${begining}${middle}${ending}|\n|${headerBar}|`
+
+    console.log(header)
+}
+
+printHeader("Intro to JavaScript Functions Lab")
+
 /*
 Exercise 1: maxOfTwoNumbers()
 
@@ -7,6 +39,7 @@ If they're equal, return either one.
 
 Exercise 1 has been completed for you:
 */
+printHeader("Exercise 1: maxOfTwoNumbers()")
 
 const maxOfTwoNumbers = (x, y) => {
   if (x >= y) {
@@ -28,6 +61,7 @@ Example: isAdult(21) should return 'Adult'.
 
 Complete the exercise in the space below:
 */
+printHeader("Exercise 2: isAdult()")
 
 const isAdult = (age) => {
     let ageCategory = 'minor'
@@ -53,6 +87,7 @@ Example: isCharAVowel('a') should return true.
 
 Complete the exercise in the space below:
 */
+printHeader("Exercise 3: isCharAVowel()")
 
 const isCharAVowel = (char) => {
     const vowels = ['a', 'e', 'i', 'o', 'u']
@@ -78,6 +113,7 @@ should return 'johnsmith@example.com'.
 
 Complete the exercise in the space below:
 */
+printHeader("Exercise 4: generateEmail()")
 
 const generateEmail = (username, domain) => {
     return `${username}@${domain}`
@@ -96,6 +132,7 @@ Example: greetUser('Sam', 'morning') should return "Good morning, Sam!"
 
 Complete the exercise in the space below:
 */
+printHeader("Exercise 5: greetUser()")
 
 const greetUser = (user, timeOfDay) => {
     return `Good ${timeOfDay}, ${user}!`
@@ -113,6 +150,7 @@ Example: maxOfThree(17, 4, 9) should return 17.
 
 Complete the exercise in the space below:
 */
+printHeader("Exercise 6: maxOfThree()")
 
 const maxOfThree = (a, b, c) => {
     /*
@@ -152,6 +190,7 @@ Example: calculateTip(50, 20) should return 10.
 
 Complete the exercise in the space below:
 */
+printHeader("Exercise 7: calculateTip()")
 
 const calculateTip = (dollarAmount, percentage) => {
     return Number(dollarAmount * (percentage / 100)).toFixed(2)
@@ -172,6 +211,7 @@ Example: convertTemperature(32, 'F') should return 0 (Celsius).
 
 Complete the exercise in the space below:
 */
+printHeader("Exercise 8: convertTemperature()")
 
 const convertTemperature = (temp, unitOfMeasure) => {
     // Fahrenheit (°F) = (°C × 9/5) + 32
@@ -206,6 +246,7 @@ Example: basicCalculator(10, 5, 'subtract') should return 5.
 
 Complete the exercise in the space below:
 */
+printHeader("Exercise 9: basicCalculator()")
 
 const basicCalculator = (n1, n2, operator) => {
     switch (operator) {
@@ -224,3 +265,82 @@ console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"));
 console.log('Exercise 9 Result:', basicCalculator(20, 1, "add"));
 console.log('Exercise 9 Result:', basicCalculator(5, 5, "multiply"));
 console.log('Exercise 9 Result:', basicCalculator(64, 2, "divide"));
+
+
+printHeader("^ LEVEL UP ^")
+/*
+Exercise 10: calculateGrade()
+
+Define a function called calculateGrade. 
+It should take a numerical score and return the corresponding letter 
+grade (A, B, C, D, F). 
+
+For example, 90 and above yields an 'A', 80-89 is a 'B', 
+and 70-79 is a 'C', 60-69 is a 'D' and anything lower than a 60 is an 'F'.
+
+Example: calculateGrade(100) should return A.
+
+Complete the exercise in the space below:
+*/
+printHeader("Exercise 10: calculateGrade()")
+
+const calculateGrade = (points) => {
+    if (points >= 90) return 'A'
+    else if (points >= 80 && points < 90) return 'B'
+    else if (points >= 70 && points < 80) return 'C'
+    else if (points >= 60 && points < 70) return 'D'
+    else return 'F'
+}
+
+console.log('Exercise 10 Result:', calculateGrade(100));
+console.log('Exercise 10 Result:', calculateGrade(90.1));
+console.log('Exercise 10 Result:', calculateGrade(89.99));
+console.log('Exercise 10 Result:', calculateGrade(80.01));
+console.log('Exercise 10 Result:', calculateGrade(79.999));
+console.log('Exercise 10 Result:', calculateGrade(70.001));
+console.log('Exercise 10 Result:', calculateGrade(69.1));
+console.log('Exercise 10 Result:', calculateGrade(60.1));
+console.log('Exercise 10 Result:', calculateGrade(59.9));
+
+/*
+Exercise 11: createUsername()
+
+Define a function called createUsername. 
+It should take a first name and a last name and return a username. 
+
+The username should be a combination of the following:
+- The first three letters of the first name.
+- The first three letters of the last name.
+- The total character count of the first and last name combined.
+
+Example: createUsername('Samantha', 'Green') should return 'SamGre13'.
+
+Complete the exercise in the space below:
+*/
+printHeader("Exercise 11: createUsername()")
+
+const createUsername = (firstName, lastName) => {
+    const beg = firstName.substring(0, 3)
+    const mid = lastName.substring(0, 3)
+    const end = firstName.length+lastName.length
+    return `${beg}${mid}${end}`
+}
+
+console.log('Exercise 11 Result:', createUsername("Samantha", "Green"));
+
+/*
+Exercise 12: numArgs()
+
+Challenge yourself with numArgs. 
+This function should return the count of arguments passed to it when called.
+
+Complete the exercise in the space below:
+*/
+printHeader("Exercise 12: numArgs()")
+
+const numArgs = (...n) => {
+    return n.length
+}
+
+console.log('Exercise 12 Result:', numArgs(1, 2, 3, 4));
+console.log('Exercise 12 Result:', numArgs(1, 2, 3, 4, 99, 98, 97, 96));
